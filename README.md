@@ -125,6 +125,28 @@ Sucursal (1) ──────── (N) Empleado
 Transacción ──── (N:1) ──── Cuenta (Origen)
             └─── (N:1) ──── Cuenta (Destino)
 ```
+```
+bank-db/
+├── 📁 docs/
+│   ├── modelo-relacional.png
+│   ├── modelo-entidad-relacion.png
+│   └── README.md                  # Explicación del modelo, relaciones, supuestos
+│
+├── 📁 scripts/
+│   ├── 01-create-tables.sql       # Sentencias para crear tablas
+│   ├── 02-insert-data.sql         # Datos de ejemplo para poblar la BD
+│   └── 03-test-queries.sql        # Consultas básicas para probar el sistema
+│
+├── 📁 diagrams/
+│   ├── entidad-relacion.drawio     # Editable en draw.io
+│   └── relacional.drawio
+│
+├── 📁 backups/
+│   └── bank-db-backup.sql         # Exportación de la BD (opcional)
+│
+└── README.md                      # Explicación general del proyecto
+```
+
 
 ### Descripción de Relaciones
 
