@@ -36,4 +36,12 @@ CREATE TABLE empleado(
     fecha_ingreso DATE NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
     telefono VARCHAR(15) NOT NULL
-)
+);
+
+CREATE TABLE sucursal(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_sucursal VARCHAR(100) NOT NULL,
+    direccion VARCHAR(255) NOT NULL,
+    telefono VARCHAR(15) NOT NULL
+);
+
