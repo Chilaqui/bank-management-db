@@ -91,3 +91,13 @@ CREATE TABLE prestamo(
         ON DELETE CASCADE
         ON UPDATE CASCADE
 )
+
+CREATE TABLE pago_prestamo(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    prestamo_id INT NOT NULL,
+    fecha_pago DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    monto_pago DECIMAL(15,2) NOT NULL,
+    FOREIGN KEY (prestamo_id) REFERENCES prestamo(id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+)
