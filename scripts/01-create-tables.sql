@@ -45,3 +45,22 @@ CREATE TABLE sucursal(
     telefono VARCHAR(15) NOT NULL
 );
 
+
+CREATE TABLE transaccion(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    fecha_hora DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    tipo_transaccion ENUM('Deposito', 'Retiro', 'Transferencia') NOT NULL,
+    monto DECIMAL(15,2) NOT NULL,
+    cuenta_origen_id INT,
+    cuenta_destino_id INT,
+    empleado_id INT NOT NULL,
+    FOREIGN KEY (cuenta_origen_id) REFERENCES cuenta(id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
+    FOREIGN KEY (cuenta_destino_id) REFERENCES cuenta(id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
+    FOREIGN KEY (empleado_id) REFERENCES empleado(id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+)
