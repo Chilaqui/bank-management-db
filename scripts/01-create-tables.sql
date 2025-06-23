@@ -64,3 +64,17 @@ CREATE TABLE transaccion(
         ON DELETE CASCADE
         ON UPDATE CASCADE
 )
+
+-- Tabla de tarjetas
+CREATE TABLE tarjeta(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    numero_tarjeta VARCHAR(16) NOT NULL UNIQUE,
+    tipo_tarjeta ENUM('Debito','Credito') NOT NULL,
+    fecha_expiracion DATE NOT NULL,
+    cvv VARCHAR(3) NOT NULL,
+    ESTADO ENUM('Activa', 'Inactiva', 'Bloqueada') NOT NULL DEFAULT 'Activa',
+    cuenta_id INT NOT NULL,
+    FOREIGN KEY (cuenta_id) REFERENCES cuenta(id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+)
