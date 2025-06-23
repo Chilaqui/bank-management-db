@@ -78,3 +78,16 @@ CREATE TABLE tarjeta(
         ON DELETE CASCADE
         ON UPDATE CASCADE
 )
+
+CREATE TABLE prestamo(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    monto DECIMAL(15,2) NOT NULL,
+    fecha_otorgamiento DATE NOT NULL,
+    fecha_vencimiento DATE NOT NULL,
+    tasa_interes DECIMAL(5,2) NOT NULL,
+    estado ENUM('Activo','Pagado','Vencido') NOT NULL DEFAULT 'Activo',
+    cliente_id INT NOT NULL,
+    FOREIGN KEY (cliente_id) REFERENCES cliente(id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+)
