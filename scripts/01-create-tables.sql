@@ -13,3 +13,15 @@ CREATE TABLE cliente (
     email VARCHAR(100) NOT NULL UNIQUE,
     fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )
+
+-- Tabla de cuentas
+CREATE TABLE cuenta(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    numero_cuenta VARCHAR(20) NOT NULL UNIQUE,
+    tipo_cuenta ENUM('Ahorros', 'Corriente', 'Nomina') NOT NULL,
+    saldo DECIMAL(15, 2) NOT NULL DEFAULT 0.00,
+    cliente_id INT NOT NULL,
+    Foreign Key (cliente_id ) REFERENCES cliente(id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
