@@ -1,7 +1,10 @@
-#Sistema de datos bancarios
 
+--Sistema de datos bancarios
+
+
+-- Tabla de clientes
 CREATE TABLE cliente (
-    id SERIAL PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(50) NOT NULL,
     apellido VARCHAR(50) NOT NULL,
     fecha_nacimiento DATE NOT NULL,
